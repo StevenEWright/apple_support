@@ -203,13 +203,13 @@ def _action_required_execution_requirements(ctx):
 
     # TODO(steinman): Replace this with xcode_config.execution_info once it is exposed.
     execution_requirements = {"requires-darwin": "1"}
-    xcode_config = ctx.attr._xcode_config[apple_common.XcodeVersionConfig]
-    if xcode_config:
-        if xcode_config.availability() == "remote":
-            execution_requirements["no-local"] = "1"
-        elif xcode_config.availability() == "local":
-            execution_requirements["no-remote"] = "1"
-        execution_requirements["supports-xcode-requirements-set"] = "1"
+#     xcode_config = ctx.attr._xcode_config[apple_common.XcodeVersionConfig]
+#     if xcode_config:
+#         if xcode_config.availability() == "remote":
+#             execution_requirements["no-local"] = "1"
+#         elif xcode_config.availability() == "local":
+#             execution_requirements["no-remote"] = "1"
+#         execution_requirements["supports-xcode-requirements-set"] = "1"
     return execution_requirements
 
 def _run(ctx, xcode_path_resolve_level = _XCODE_PATH_RESOLVE_LEVEL.none, **kwargs):
